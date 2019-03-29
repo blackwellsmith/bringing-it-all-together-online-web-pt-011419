@@ -55,7 +55,7 @@ class Dog
      DB[:conn].execute(sql, id).map do |row|
       self.new_from_db(row)
     end.first
-    binding.pry
+   # binding.pry
   end
   
   def self.find_by_name(name)
@@ -97,7 +97,7 @@ class Dog
       if dog
         new_dog = self.new_from_db(dog)
       else
-        new_dog = self.create({:name => name, :breed => breed})
+        new_dog = self.create(name:name, breed:breed)
       end
       new_dog
   end
